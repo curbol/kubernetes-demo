@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: web
+  namespace: prisma
+spec:
+  ports:
+    - port: 4466
+      targetPort: 4466
+      protocol: TCP
+  selector:
+    stage: production
+    name: web
+    app: web

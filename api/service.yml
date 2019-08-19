@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: dc-api
+  labels:
+    app: dc
+spec:
+  ports:
+    - port: 8080
+      nodePort: 30001
+      protocol: TCP
+  selector:
+    stage: production
+    name: dc-api
+    app: dc
