@@ -1,14 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: web
-  namespace: prisma
+  name: dc-web
+  labels:
+    app: dc
 spec:
   ports:
-    - port: 4466
-      targetPort: 4466
+    - port: 8080
+      nodePort: 30002
       protocol: TCP
   selector:
     stage: production
-    name: web
-    app: web
+    name: dc-web
+    app: dc
