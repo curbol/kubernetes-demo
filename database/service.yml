@@ -10,5 +10,5 @@ spec:
     protocol: TCP
   selector:
     stage: production
-    name: database 
+    name: database
     app: mysql

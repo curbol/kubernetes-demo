@@ -2,13 +2,15 @@ apiVersion: v1
 kind: Service
 metadata:
   name: dc-api
+  namespace: prisma
   labels:
     app: dc
 spec:
+  type: LoadBalancer
   ports:
-    - port: 8080
-      nodePort: 30001
-      protocol: TCP
+  - port: 80
+    targetPort: 4000
+    protocol: TCP
   selector:
     stage: production
     name: dc-api

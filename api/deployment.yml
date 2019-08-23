@@ -2,6 +2,9 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: dc-api
+  namespace: prisma
+  labels:
+    app: dc
 spec:
   replicas: 1
   strategy:
@@ -15,7 +18,6 @@ spec:
     spec:
       containers:
         - name: dc-api
-          image: prismagraphql/prisma:1.34
+          image: gcr.io/dietetic-calculator/dietetic-calculator-api:latest
           ports:
-            - name: api-8080
-              containerPort: 8080
+            - containerPort: 4000
